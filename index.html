@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コーヒーメニュー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="notice-box" id="notice-box">
+      コーヒーをセットしてボタンを押してください
+      <div class="arrow">↓</div>
+    </div>
+    <div class="section">
+      <div class="section-title">
+        <span class="line"></span>
+        <span class="title-text">HOT COFFEE</span>
+        <span class="line"></span>
+      </div>
+      <div class="button-row">
+        <div class="coffee-btn">
+          <svg class="glass-icon" viewBox="0 0 120 120" width="80" height="80">
+            <circle cx="60" cy="60" r="54" stroke="#fff" stroke-width="12" fill="#000"/>
+            <line x1="40" y1="40" x2="52" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="80" y1="40" x2="68" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="40" y1="40" x2="80" y2="40" stroke="#fff" stroke-width="7"/>
+            <line x1="44" y1="56" x2="76" y2="56" stroke="#fff" stroke-width="7"/>
+          </svg>
+        </div>
+        <div class="coffee-btn">
+          <svg class="glass-icon" viewBox="0 0 120 120" width="80" height="80">
+            <circle cx="60" cy="60" r="54" stroke="#fff" stroke-width="12" fill="#000"/>
+            <line x1="40" y1="40" x2="52" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="80" y1="40" x2="68" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="40" y1="40" x2="80" y2="40" stroke="#fff" stroke-width="7"/>
+            <line x1="44" y1="56" x2="76" y2="56" stroke="#fff" stroke-width="7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">
+        <span class="line"></span>
+        <span class="title-text">ICE COFFEE</span>
+        <span class="line"></span>
+      </div>
+      <div class="button-row">
+        <div class="coffee-btn">
+          <svg class="glass-icon" viewBox="0 0 120 120" width="80" height="80">
+            <circle cx="60" cy="60" r="54" stroke="#fff" stroke-width="12" fill="#000"/>
+            <line x1="40" y1="40" x2="52" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="80" y1="40" x2="68" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="40" y1="40" x2="80" y2="40" stroke="#fff" stroke-width="7"/>
+            <line x1="44" y1="56" x2="76" y2="56" stroke="#fff" stroke-width="7"/>
+          </svg>
+        </div>
+        <div class="coffee-btn">
+          <svg class="glass-icon" viewBox="0 0 120 120" width="80" height="80">
+            <circle cx="60" cy="60" r="54" stroke="#fff" stroke-width="12" fill="#000"/>
+            <line x1="40" y1="40" x2="52" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="80" y1="40" x2="68" y2="92" stroke="#fff" stroke-width="7"/>
+            <line x1="40" y1="40" x2="80" y2="40" stroke="#fff" stroke-width="7"/>
+            <line x1="44" y1="56" x2="76" y2="56" stroke="#fff" stroke-width="7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-decoration" id="bottom-btn" tabindex="0">
+      <span class="circle"></span>
+      <span class="hline"></span>
+      <span class="vline"></span>
+      <span class="hline"></span>
+      <span class="vline"></span>
+      <span class="hline"></span>
+    </div>
+  </div>
+  <script>
+    // HOT COFFEEのボタンとタイトルを取得
+    const hotButtons = document.querySelectorAll('.section:nth-of-type(1) .coffee-btn');
+    const hotTitle = document.querySelector('.section:nth-of-type(1) .title-text');
+    // すべてのボタン
+    const allButtons = document.querySelectorAll('.coffee-btn');
+    // 上部テキスト
+    const noticeBox = document.getElementById('notice-box');
+    let noticeTimeout;
+
+    hotButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.add('active-red');
+        hotTitle.classList.add('active-red');
+        setTimeout(() => {
+          btn.classList.remove('active-red');
+          hotTitle.classList.remove('active-red');
+        }, 5000);
+      });
+    });
+
+    allButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (noticeTimeout) clearTimeout(noticeTimeout);
+        noticeBox.style.transition = '';
+        noticeBox.innerHTML = 'コーヒーの濃さを選択してください\n<div class="arrow">↓</div>';
+        noticeBox.style.color = '#111';
+      });
+    });
+
+    // 下部装飾ボタン
+    const bottomBtn = document.getElementById('bottom-btn');
+    bottomBtn.addEventListener('click', () => {
+      setTimeout(() => {
+        noticeBox.innerHTML = 'コーヒーが完成しました<div class="arrow">↓</div>';
+        noticeBox.style.color = '#111';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

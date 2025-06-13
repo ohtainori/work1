@@ -1,0 +1,195 @@
+/* ベース設定 */
+body {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Arial Black', 'Arial', sans-serif;
+  color: #fff;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.notice-box {
+  background: #c7d2c1;
+  color: #111;
+  width: 420px;
+  max-width: 90vw;
+  padding: 36px 24px 24px 24px;
+  border-radius: 2px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+.arrow {
+  display: block;
+  font-size: 2em;
+  margin-top: 18px;
+  color: #111;
+}
+.section {
+  width: 100%;
+  margin-bottom: 36px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.section-title .line {
+  display: inline-block;
+  height: 18px;
+  width: 160px;
+  background: #fff;
+  border-radius: 2px;
+  margin: 0 18px;
+}
+.section-title .title-text {
+  font-size: 2.6em;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-family: 'Arial Black', 'Arial', sans-serif;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 32px;
+}
+.coffee-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s;
+}
+.coffee-btn:active {
+  box-shadow: 0 0 0 6px #fff2, 0 0 24px 8px #fff4;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 下部装飾 */
+.bottom-decoration {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 0;
+  position: relative;
+}
+.bottom-decoration .circle {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: #000;
+  display: inline-block;
+  margin-right: -8px;
+  position: relative;
+  z-index: 2;
+}
+.bottom-decoration .hline {
+  width: 100px;
+  height: 6px;
+  background: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 0 2px;
+}
+.bottom-decoration .vline {
+  width: 6px;
+  height: 60px;
+  background: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 0 2px;
+}
+@media (max-width: 700px) {
+  .container {
+    padding: 16px 0 0 0;
+  }
+  .notice-box {
+    width: 98vw;
+    padding: 18px 2vw 12px 2vw;
+    font-size: 1em;
+  }
+  .section-title .line {
+    width: 18vw;
+    min-width: 40px;
+  }
+  .section-title .title-text {
+    font-size: 1.3em;
+  }
+  .button-row {
+    gap: 24px;
+  }
+  .coffee-btn {
+    width: 70px;
+    height: 70px;
+  }
+  .bottom-decoration .hline {
+    width: 18vw;
+    min-width: 30px;
+    height: 4px;
+  }
+  .bottom-decoration .vline {
+    height: 30px;
+    width: 4px;
+  }
+  .bottom-decoration .circle {
+    width: 22px;
+    height: 22px;
+    border-width: 2px;
+  }
+}
+
+/* 赤くするクラス */
+.active-red {
+  color: #ff2a2a !important;
+  border-color: #ff2a2a !important;
+  box-shadow: 0 0 0 6px #ff2a2a55, 0 0 24px 8px #ff2a2a44 !important;
+}
+.section .coffee-btn.active-red svg .glass-icon,
+.section .coffee-btn.active-red svg {
+  stroke: #ff2a2a !important;
+}
+.section .coffee-btn.active-red svg circle {
+  stroke: #ff2a2a !important;
+}
+.section .coffee-btn.active-red svg line,
+.section .coffee-btn.active-red svg path {
+  stroke: #ff2a2a !important;
+}
+.section-title .title-text.active-red {
+  color: #ff2a2a !important;
+  text-shadow: 0 0 8px #ff2a2a88, 0 0 16px #fff;
+}
+
+.coffee-btn, .section-title .title-text {
+  transition: color 0.5s, border-color 0.5s, box-shadow 0.5s;
+}
+.coffee-btn svg, .coffee-btn svg * {
+  transition: stroke 0.5s;
+}
